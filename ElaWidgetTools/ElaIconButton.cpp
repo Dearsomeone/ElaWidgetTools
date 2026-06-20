@@ -238,7 +238,7 @@ void ElaIconButton::paintEvent(QPaintEvent* event)
         painter.setPen(isEnabled() ? d->_themeMode == ElaThemeType::Light ? underMouse() ? d->_pLightHoverIconColor : d->_pLightIconColor : underMouse() ? d->_pDarkHoverIconColor
                                                                                                                                                          : d->_pDarkIconColor
                                    : ElaThemeColor(d->_themeMode, BasicTextDisable));
-        painter.drawText(rect(), Qt::AlignCenter, QChar(d->_pAwesome));
+        painter.drawText(rect(), Qt::AlignCenter, QChar(static_cast<char16_t>(d->_pAwesome)));
     }
     painter.restore();
 }
