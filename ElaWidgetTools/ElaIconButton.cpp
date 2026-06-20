@@ -63,7 +63,7 @@ ElaIconButton::ElaIconButton(ElaIconType::IconName awesome, QWidget* parent)
     iconFont.setPixelSize(eApp->getFontPixelSize() + 2);
     this->setFont(iconFont);
     d->_pAwesome = awesome;
-    this->setText(QChar(awesome));
+    this->setText(QChar(static_cast<char16_t>(awesome)));
     connect(this, &ElaIconButton::pIsSelectedChanged, this, [=]() {
         update();
     });
@@ -92,7 +92,7 @@ ElaIconButton::ElaIconButton(ElaIconType::IconName awesome, int pixelSize, QWidg
     iconFont.setPixelSize(pixelSize);
     this->setFont(iconFont);
     d->_pAwesome = awesome;
-    this->setText(QChar(awesome));
+    this->setText(QChar(static_cast<char16_t>(awesome)));
     connect(this, &ElaIconButton::pIsSelectedChanged, this, [=]() {
         update();
     });
@@ -121,7 +121,7 @@ ElaIconButton::ElaIconButton(ElaIconType::IconName awesome, int pixelSize, int f
     iconFont.setPixelSize(pixelSize);
     this->setFont(iconFont);
     d->_pAwesome = awesome;
-    this->setText(QChar(awesome));
+    this->setText(QChar(static_cast<char16_t>(awesome)));
     this->setFixedSize(fixedWidth, fixedHeight);
     connect(this, &ElaIconButton::pIsSelectedChanged, this, [=]() {
         update();
@@ -139,7 +139,7 @@ void ElaIconButton::setAwesome(ElaIconType::IconName awesome)
 {
     Q_D(ElaIconButton);
     d->_pAwesome = awesome;
-    this->setText(QChar(awesome));
+    this->setText(QChar(static_cast<char16_t>(awesome)));
 }
 
 ElaIconType::IconName ElaIconButton::getAwesome() const
